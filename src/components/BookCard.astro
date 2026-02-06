@@ -9,7 +9,30 @@ interface Props {
 }
 
 const { title, description, price, imageUrl, amazonUrl, badge } = Astro.props;
+
+// Schema.org JSON-LD data
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": title,
+  "author": {
+    "@type": "Person",
+    "name": "Hofma Publishing" // You can change this to your specific author name
+  },
+  "description": description,
+  "image": imageUrl,
+  "url": amazonUrl,
+  "offers": {
+    "@type": "Offer",
+    "price": price ? price.replace(/[^0-9.]/g, '') : "0.00",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": amazonUrl
+  }
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
 <article class="group relative flex flex-col bg-white border border-stone-200/80 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-amber-900/5 transition-all duration-300">
 	{badge && (
