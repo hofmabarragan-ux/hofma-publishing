@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="About | Hofma Publishing"
+	description="Learn about Hofma Publishing, an independent publishing house dedicated to bringing quality books to readers worldwide."
+>
+	<article class="page-content">
+		<div class="section-inner">
+			<h1>About Hofma Publishing</h1>
+			<div class="about-body">
+				<p>
+					Hofma Publishing is an independent publishing house dedicated to bringing quality books to readers worldwide. We believe in the power of storytelling and the importance of making great literature accessible to everyone.
+				</p>
+				<p>
+					Our books are available through Amazon Kindle Direct Publishing (KDP), making it easy for readers to discover and enjoy our titles in both print and digital formats.
+				</p>
+				<p>
+					We are committed to supporting authors and delivering books that inspire, entertain, and inform. Thank you for being part of our community of readers.
+				</p>
+			</div>
+		</div>
+	</article>
+</Layout>
+
+<style>
+	.page-content {
+		padding: var(--space-2xl) var(--space-lg);
+	}
+
+	.section-inner {
+		max-width: 720px;
+		margin: 0 auto;
+	}
+
+	.page-content h1 {
+		margin: 0 0 var(--space-xl);
+	}
+
+	.about-body p {
+		margin: 0 0 var(--space-md);
+	}
+
+	.about-body p:last-child {
+		margin-bottom: 0;
+	}
+</style>

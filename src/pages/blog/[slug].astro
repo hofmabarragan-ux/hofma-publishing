@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths() {
+	return [
+		{ params: { slug: 'welcome' }, props: { title: 'Welcome to Our Blog', date: '2025-02-01', content: "We're excited to share news, updates, and insights from Hofma Publishing. Stay tuned for author interviews, book recommendations, and behind-the-scenes updates. Thank you for visiting our blog!" } },
+		{ params: { slug: 'joy-of-independent-publishing' }, props: { title: 'The Joy of Independent Publishing', date: '2025-01-15', content: "What drives us to publish independently? A passion for books, a commitment to quality, and the freedom to bring diverse voices to readers. Independent publishing allows us to take creative risks and connect directly with our audience." } },
+	];
+}
+
+const { slug } = Astro.params;
+const { title, date, content } = Astro.props;
+---
+
+<Layout title={`${title} | Hofma Publishing`} description={content.slice(0, 160)}>
+	<article class="page-content">
+		<div class="section-inner">
+			<nav class="breadcrumb">
+				<a href="/blog/">Blog</a>
+				<span class="separator">/</span>
+				<span>{title}</span>
+			</nav>
+			<time datetime={date}>{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+			<h1>{title}</h1>
+			<div class="post-body">
+				<p>{content}</p>
+			</div>
+			<p><a href="/blog/" class="back-link">← Back to Blog</a></p>
+		</div>
+	</article>
+</Layout>
+
+<style>
+	.page-content {
+		padding: var(--space-2xl) var(--space-lg);
+	}
+
+	.section-inner {
+		max-width: 720px;
+		margin: 0 auto;
+	}
+
+	.breadcrumb {
+		margin-bottom: var(--space-md);
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+	}
+
+	.breadcrumb .separator {
+		margin: 0 var(--space-xs);
+	}
+
+	.page-content time {
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+	}
+
+	.page-content h1 {
+		margin: var(--space-xs) 0 var(--space-xl);
+	}
+
+	.post-body p {
+		margin: 0 0 var(--space-md);
+	}
+
+	.back-link {
+		font-weight: 500;
+		margin-top: var(--space-xl);
+		display: inline-block;
+	}
+</style>

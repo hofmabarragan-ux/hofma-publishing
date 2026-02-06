@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Books | Hofma Publishing"
+	description="Browse our collection of books available on Amazon Kindle Direct Publishing."
+>
+	<article class="page-content">
+		<div class="section-inner">
+			<h1>Our Books</h1>
+			<p class="section-intro">All our titles are available on Amazon. Click any book to purchase.</p>
+			<div class="books-grid">
+				<article class="book-card">
+					<div class="book-cover">
+						<div class="book-cover-placeholder">
+							<span>Book Cover</span>
+						</div>
+					</div>
+					<div class="book-info">
+						<h3>Book Title Placeholder</h3>
+						<p class="book-author">Author Name</p>
+						<p class="book-description">A brief description of your book will go here.</p>
+						<a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buy on Amazon</a>
+					</div>
+				</article>
+				<article class="book-card">
+					<div class="book-cover">
+						<div class="book-cover-placeholder">
+							<span>Book Cover</span>
+						</div>
+					</div>
+					<div class="book-info">
+						<h3>Book Title Placeholder</h3>
+						<p class="book-author">Author Name</p>
+						<p class="book-description">A brief description of your book will go here.</p>
+						<a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buy on Amazon</a>
+					</div>
+				</article>
+				<article class="book-card">
+					<div class="book-cover">
+						<div class="book-cover-placeholder">
+							<span>Book Cover</span>
+						</div>
+					</div>
+					<div class="book-info">
+						<h3>Book Title Placeholder</h3>
+						<p class="book-author">Author Name</p>
+						<p class="book-description">A brief description of your book will go here.</p>
+						<a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buy on Amazon</a>
+					</div>
+				</article>
+			</div>
+		</div>
+	</article>
+</Layout>
+
+<style>
+	.page-content {
+		padding: var(--space-2xl) var(--space-lg);
+	}
+
+	.section-inner {
+		max-width: var(--max-width);
+		margin: 0 auto;
+	}
+
+	.page-content h1 {
+		margin: 0 0 var(--space-sm);
+	}
+
+	.section-intro {
+		color: var(--color-text-muted);
+		margin: 0 0 var(--space-xl);
+	}
+
+	.books-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: var(--space-xl);
+	}
+
+	.book-card {
+		background: white;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		transition: box-shadow 0.2s ease;
+	}
+
+	.book-card:hover {
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+	}
+
+	.book-cover {
+		aspect-ratio: 2/3;
+		background: var(--color-border);
+	}
+
+	.book-cover-placeholder {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+	}
+
+	.book-info {
+		padding: var(--space-md);
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.book-info h3 {
+		margin: 0 0 var(--space-xs);
+		font-size: 1.125rem;
+	}
+
+	.book-author {
+		margin: 0 0 var(--space-sm);
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+	}
+
+	.book-description {
+		margin: 0 0 var(--space-md);
+		font-size: 0.9375rem;
+		color: var(--color-text-muted);
+		flex: 1;
+	}
+
+	.book-info .btn {
+		margin-top: auto;
+	}
+</style>
