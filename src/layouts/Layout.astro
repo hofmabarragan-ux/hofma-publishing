@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
 	title?: string;
 	description?: string;
@@ -10,6 +12,22 @@ const { title = 'Hofma Publishing', description = 'Independent publishing house 
 <!doctype html>
 <html lang="en">
 	<head>
+		<!-- Google Tag Manager -->
+		<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-NJSGDSS3');</script>
+		<!-- End Google Tag Manager -->
+		<!-- Google Analytics 4 -->
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-YGL1NHVR3Q"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-YGL1NHVR3Q');
+		</script>
+		<!-- End Google Analytics 4 -->
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
@@ -22,12 +40,15 @@ const { title = 'Hofma Publishing', description = 'Independent publishing house 
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
 	</head>
 	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJSGDSS3"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
 		<header class="site-header">
 			<div class="header-inner">
 				<a href="/" class="logo">Hofma Publishing</a>
 				<nav class="nav">
 					<a href="/">Home</a>
-					<a href="/books/">Books</a>
 					<a href="/blog/">Blog</a>
 					<a href="/about/">About</a>
 				</nav>
@@ -48,7 +69,6 @@ const { title = 'Hofma Publishing', description = 'Independent publishing house 
 				<p>&copy; {new Date().getFullYear()} Hofma Publishing. All rights reserved.</p>
 				<nav class="footer-nav">
 					<a href="/">Home</a>
-					<a href="/books/">Books</a>
 					<a href="/blog/">Blog</a>
 					<a href="/about/">About</a>
 				</nav>

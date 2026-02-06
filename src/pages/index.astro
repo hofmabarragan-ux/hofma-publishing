@@ -1,371 +1,76 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BookCard from '../components/BookCard.astro';
+
+const books = [
+	{
+		title: 'Extended Color Edition',
+		description: 'The complete experience with bonus content and full-color interior. Premium hardback for the discerning reader.',
+		price: null,
+		imageUrl: 'https://images-na.ssl-images-amazon.com/images/P/B0G33G45CJ.jpg',
+		amazonUrl: 'https://www.amazon.com/dp/B0G33G45CJ',
+		badge: 'Recommended',
+	},
+	{
+		title: 'Color Edition',
+		description: 'Full-color interior for a vibrant reading experience. Elegant premium hardback binding.',
+		price: null,
+		imageUrl: 'https://images-na.ssl-images-amazon.com/images/P/B0FX9C7TS5.jpg',
+		amazonUrl: 'https://www.amazon.com/dp/B0FX9C7TS5',
+		badge: null,
+	},
+	{
+		title: 'Standard Edition (B&W)',
+		description: 'Classic black and white interior. Elegant and durable hardback—perfect for everyday reading.',
+		price: null,
+		imageUrl: 'https://images-na.ssl-images-amazon.com/images/P/B0FDRXJX7C.jpg',
+		amazonUrl: 'https://www.amazon.com/dp/B0FDRXJX7C',
+		badge: null,
+	},
+];
 ---
 
 <Layout title="Hofma Publishing | Independent Publishing House">
-	<section class="hero">
-		<div class="hero-inner">
-			<h1>Hofma Publishing</h1>
-			<p class="hero-tagline">Independent publishing house bringing quality books to readers worldwide.</p>
+	<!-- Hero -->
+	<section class="py-24 md:py-32 px-6 bg-gradient-to-b from-amber-50/50 to-transparent">
+		<div class="max-w-4xl mx-auto text-center">
+			<h1 class="font-serif text-4xl md:text-6xl font-semibold text-stone-900 mb-4 tracking-tight">
+				Hofma Publishing
+			</h1>
+			<p class="text-lg md:text-xl text-stone-500 max-w-2xl mx-auto">
+				Independent publishing house bringing quality books to readers worldwide.
+			</p>
 		</div>
 	</section>
 
-	<section class="featured-book-section">
-		<div class="featured-inner">
-			<div class="featured-cover">
-				<img src="/featured-book-cover.jpg" alt="Featured book cover" width="400" height="600" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-				<div class="featured-cover-placeholder" style="display: none;">
-					<span>Book Cover<br><small>Add featured-book-cover.jpg to /public</small></span>
-				</div>
-			</div>
-			<div class="featured-content">
-				<span class="featured-label">Featured Book</span>
-				<h2 class="featured-title">Book Title</h2>
-				<p class="featured-description">
-					Add your book description here. This featured title is available in three hardback editions to suit your preferences—from the economical black and white standard edition to our comprehensive extended color edition with additional content.
+	<!-- My Books -->
+	<section class="py-20 md:py-28 px-6">
+		<div class="max-w-6xl mx-auto">
+			<div class="text-center mb-16">
+				<h2 class="font-serif text-3xl md:text-4xl font-semibold text-stone-900 mb-3">
+					My Books
+				</h2>
+				<p class="text-stone-500 max-w-xl mx-auto">
+					Available in premium hardback editions. Choose the format that suits you best.
 				</p>
-				<div class="edition-cards">
-					<a href="https://www.amazon.com/dp/B0FDRXJX7C" target="_blank" rel="noopener noreferrer" class="edition-card">
-						<span class="edition-name">Standard Edition (B&W)</span>
-						<span class="edition-cta">Buy on Amazon →</span>
-					</a>
-					<a href="https://www.amazon.com/dp/B0FX9C7TS5" target="_blank" rel="noopener noreferrer" class="edition-card">
-						<span class="edition-name">Color Edition</span>
-						<span class="edition-cta">Buy on Amazon →</span>
-					</a>
-					<a href="https://www.amazon.com/dp/B0G33G45CJ" target="_blank" rel="noopener noreferrer" class="edition-card edition-card-recommended">
-						<span class="edition-badge">Recommended</span>
-						<span class="edition-name">Extended Color Edition</span>
-						<span class="edition-cta">Buy on Amazon →</span>
-					</a>
-				</div>
 			</div>
-		</div>
-	</section>
 
-	<section class="books-section">
-		<div class="section-inner">
-			<h2>Our Books</h2>
-			<p class="section-intro">Discover our titles available on Amazon Kindle Direct Publishing.</p>
-			<div class="books-grid">
-				<article class="book-card">
-					<div class="book-cover">
-						<div class="book-cover-placeholder">
-							<span>Book Cover</span>
-						</div>
-					</div>
-					<div class="book-info">
-						<h3>Book Title Placeholder</h3>
-						<p class="book-author">Author Name</p>
-						<p class="book-description">A brief description of your book will go here.</p>
-						<a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buy on Amazon</a>
-					</div>
-				</article>
-				<article class="book-card">
-					<div class="book-cover">
-						<div class="book-cover-placeholder">
-							<span>Book Cover</span>
-						</div>
-					</div>
-					<div class="book-info">
-						<h3>Book Title Placeholder</h3>
-						<p class="book-author">Author Name</p>
-						<p class="book-description">A brief description of your book will go here.</p>
-						<a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buy on Amazon</a>
-					</div>
-				</article>
-				<article class="book-card">
-					<div class="book-cover">
-						<div class="book-cover-placeholder">
-							<span>Book Cover</span>
-						</div>
-					</div>
-					<div class="book-info">
-						<h3>Book Title Placeholder</h3>
-						<p class="book-author">Author Name</p>
-						<p class="book-description">A brief description of your book will go here.</p>
-						<a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buy on Amazon</a>
-					</div>
-				</article>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+				{books.map((book) => (
+					<BookCard
+						title={book.title}
+						description={book.description}
+						price={book.price}
+						imageUrl={book.imageUrl}
+						amazonUrl={book.amazonUrl}
+						badge={book.badge}
+					/>
+				))}
 			</div>
-			<p class="books-cta">
-				<a href="/books/" class="link-arrow">View all books →</a>
+
+			<p class="mt-14 text-center text-stone-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+				If you purchase a book, I would really appreciate it if you could leave a review on Amazon. Your feedback helps other readers discover these titles and means a lot to me.
 			</p>
 		</div>
 	</section>
 </Layout>
-
-<style>
-	.featured-book-section {
-		padding: var(--space-2xl) var(--space-lg);
-		background: white;
-		border-top: 1px solid var(--color-border);
-		border-bottom: 1px solid var(--color-border);
-	}
-
-	.featured-inner {
-		max-width: var(--max-width);
-		margin: 0 auto;
-		display: grid;
-		grid-template-columns: minmax(240px, 400px) 1fr;
-		gap: var(--space-2xl);
-		align-items: start;
-	}
-
-	.featured-cover {
-		position: relative;
-		aspect-ratio: 2/3;
-		background: var(--color-border);
-		border-radius: 8px;
-		overflow: hidden;
-		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-	}
-
-	.featured-cover img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		display: block;
-	}
-
-	.featured-cover-placeholder {
-		width: 100%;
-		height: 100%;
-		display: none;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		color: var(--color-text-muted);
-		font-size: 0.875rem;
-		padding: var(--space-md);
-	}
-
-	.featured-cover-placeholder small {
-		font-size: 0.75rem;
-		opacity: 0.8;
-	}
-
-	.featured-content {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-md);
-	}
-
-	.featured-label {
-		display: inline-block;
-		font-size: 0.75rem;
-		font-weight: 600;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: var(--color-accent);
-		margin-bottom: var(--space-xs);
-	}
-
-	.featured-title {
-		margin: 0;
-		font-size: clamp(1.75rem, 4vw, 2.25rem);
-	}
-
-	.featured-description {
-		margin: 0;
-		color: var(--color-text-muted);
-		line-height: 1.7;
-	}
-
-	.edition-cards {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-sm);
-		margin-top: var(--space-sm);
-	}
-
-	.edition-card {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		gap: var(--space-sm);
-		padding: var(--space-md) var(--space-lg);
-		background: var(--color-bg);
-		border: 1px solid var(--color-border);
-		border-radius: 8px;
-		text-decoration: none;
-		color: var(--color-text);
-		transition: border-color 0.2s ease, box-shadow 0.2s ease;
-		position: relative;
-	}
-
-	.edition-card:hover {
-		border-color: var(--color-accent);
-		box-shadow: 0 4px 12px rgba(44, 82, 130, 0.08);
-	}
-
-	.edition-card-recommended {
-		border-color: var(--color-accent);
-		background: rgba(44, 82, 130, 0.04);
-	}
-
-	.edition-card-recommended:hover {
-		box-shadow: 0 4px 16px rgba(44, 82, 130, 0.12);
-	}
-
-	.edition-badge {
-		position: absolute;
-		top: -10px;
-		right: var(--space-md);
-		font-size: 0.6875rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: white;
-		background: var(--color-accent);
-		padding: 0.25rem 0.5rem;
-		border-radius: 4px;
-	}
-
-	.edition-name {
-		font-weight: 600;
-		font-size: 1rem;
-	}
-
-	.edition-cta {
-		font-size: 0.875rem;
-		color: var(--color-accent);
-		font-weight: 500;
-	}
-
-	.edition-card:hover .edition-cta {
-		text-decoration: underline;
-	}
-
-	@media (max-width: 768px) {
-		.featured-inner {
-			grid-template-columns: 1fr;
-			gap: var(--space-xl);
-		}
-
-		.featured-cover {
-			max-width: 280px;
-			margin: 0 auto;
-			width: 100%;
-		}
-	}
-
-	.hero {
-		padding: var(--space-2xl) var(--space-lg) var(--space-2xl);
-		text-align: center;
-		background: linear-gradient(180deg, rgba(44, 82, 130, 0.04) 0%, transparent 100%);
-	}
-
-	.hero-inner {
-		max-width: 720px;
-		margin: 0 auto;
-	}
-
-	.hero h1 {
-		margin: 0 0 var(--space-md);
-	}
-
-	.hero-tagline {
-		font-size: 1.25rem;
-		color: var(--color-text-muted);
-		margin: 0;
-	}
-
-	.books-section {
-		padding: var(--space-2xl) var(--space-lg);
-	}
-
-	.section-inner {
-		max-width: var(--max-width);
-		margin: 0 auto;
-	}
-
-	.section-inner h2 {
-		margin: 0 0 var(--space-sm);
-		text-align: center;
-	}
-
-	.section-intro {
-		text-align: center;
-		color: var(--color-text-muted);
-		margin: 0 0 var(--space-xl);
-		max-width: 600px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.books-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-		gap: var(--space-xl);
-		margin-bottom: var(--space-xl);
-	}
-
-	.book-card {
-		background: white;
-		border: 1px solid var(--color-border);
-		border-radius: 8px;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-		transition: box-shadow 0.2s ease;
-	}
-
-	.book-card:hover {
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-	}
-
-	.book-cover {
-		aspect-ratio: 2/3;
-		background: var(--color-border);
-	}
-
-	.book-cover-placeholder {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: var(--color-text-muted);
-		font-size: 0.875rem;
-	}
-
-	.book-info {
-		padding: var(--space-md);
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.book-info h3 {
-		margin: 0 0 var(--space-xs);
-		font-size: 1.125rem;
-	}
-
-	.book-author {
-		margin: 0 0 var(--space-sm);
-		font-size: 0.875rem;
-		color: var(--color-text-muted);
-	}
-
-	.book-description {
-		margin: 0 0 var(--space-md);
-		font-size: 0.9375rem;
-		color: var(--color-text-muted);
-		flex: 1;
-	}
-
-	.book-info .btn {
-		margin-top: auto;
-	}
-
-	.books-cta {
-		text-align: center;
-		margin: 0;
-	}
-
-	.link-arrow {
-		font-weight: 600;
-	}
-</style>
