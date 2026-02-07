@@ -28,8 +28,8 @@ jobs:
       - name: Pull Vercel project (link + env)
         run: vercel pull --yes --environment=production
 
-      - name: Build (produces .vercel/output)
-        run: vercel build --prod
+      - name: Build (Astro → .vercel/output)
+        run: npm run build
 
       - name: Deploy to Vercel (prebuilt)
         run: vercel deploy --prebuilt --prod --yes
