@@ -1,4 +1,4 @@
-# Build locally and deploy prebuilt output to Vercel (avoids entry.mjs error on Vercel's build)
+# Build with Vercel CLI and deploy prebuilt output (avoids entry.mjs error on Vercel's remote build)
 name: Deploy to Vercel (prebuilt)
 on:
   push:
@@ -6,6 +6,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -18,17 +22,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
 
-      - name: Verify build output
-        run: |
-          if [ ! -d .vercel/output ]; then echo "Missing .vercel/output"; exit 1; fi
-          ls -la .vercel/output
+      - name: Pull Vercel project (link + env)
+        run: vercel pull --yes --environment=production
+
+      - name: Build (produces .vercel/output)
+        run: vercel build --prod
 
       - name: Deploy to Vercel (prebuilt)
-        run: npx vercel deploy --prebuilt --prod --yes
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: vercel deploy --prebuilt --prod --yes
