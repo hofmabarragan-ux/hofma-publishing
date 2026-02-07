@@ -21,8 +21,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Verify build output
+        run: |
+          if [ ! -d .vercel/output ]; then echo "Missing .vercel/output"; exit 1; fi
+          ls -la .vercel/output
+
       - name: Deploy to Vercel (prebuilt)
-        run: npx vercel deploy --prebuilt --prod --yes --token "${{ secrets.VERCEL_TOKEN }}"
+        run: npx vercel deploy --prebuilt --prod --yes
         env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
