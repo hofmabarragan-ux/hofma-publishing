@@ -8,14 +8,11 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://hofmapublishing.com',
 
-  // Sætter Astro til at køre som en server, så API-ruter virker live
   output: 'server',
 
-  // Vi konfigurerer adapteren specifikt for at undgå "Module Not Found" fejl
   adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
+    webAnalytics: { enabled: true },
+    imageService: true,
   }),
 
   env: {

@@ -1,6 +1,6 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
-import { c as createInvalidVariablesError, g as getEnv$1, s as setOnSetGetEnv } from '../../chunks/runtime_gmLw3lui.mjs';
+import { c as createInvalidVariablesError, g as getEnv$1, s as setOnSetGetEnv } from '../../chunks/runtime_BQkZHBb8.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const schema = {"GOOGLE_SERVICE_ACCOUNT_EMAIL":{"context":"server","access":"secret","optional":true,"type":"string"},"GOOGLE_PRIVATE_KEY":{"context":"server","access":"secret","optional":true,"type":"string"},"GOOGLE_SHEET_ID":{"context":"server","access":"secret","optional":true,"type":"string"}};
@@ -203,37 +203,36 @@ const POST = async ({ request }) => {
         { status: 400, headers }
       );
     }
-    const serviceAccountEmail = GOOGLE_SERVICE_ACCOUNT_EMAIL;
-    const privateKey = GOOGLE_PRIVATE_KEY;
-    const sheetId = GOOGLE_SHEET_ID;
-    if (!serviceAccountEmail || !privateKey || !sheetId) {
-      console.error("Missing Google Sheets configuration");
+    if (!GOOGLE_SERVICE_ACCOUNT_EMAIL || !GOOGLE_PRIVATE_KEY || !GOOGLE_SHEET_ID) {
+      console.error("Missing configuration");
       return new Response(
         JSON.stringify({ error: "Newsletter signup is not configured" }),
         { status: 500, headers }
       );
     }
+    console.log("Key starts with:", GOOGLE_PRIVATE_KEY.substring(0, 20));
+    const formattedKey = GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n").replace(/"/g, "");
     const serviceAccountAuth = new JWT({
-      email: serviceAccountEmail,
-      key: privateKey.replace(/\\n/g, "\n"),
+      email: GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      key: formattedKey,
       scopes: ["https://www.googleapis.com/auth/spreadsheets"]
     });
-    const doc = new GoogleSpreadsheet(sheetId, serviceAccountAuth);
+    const doc = new GoogleSpreadsheet(GOOGLE_SHEET_ID, serviceAccountAuth);
     await doc.loadInfo();
     const sheet = doc.sheetsByIndex[0];
     await sheet.addRow({
-      Date: (/* @__PURE__ */ new Date()).toISOString(),
+      Date: (/* @__PURE__ */ new Date()).toLocaleString("da-DK", { timeZone: "Europe/Copenhagen" }),
       Email: trimmedEmail,
       Source: String(source).slice(0, 100)
     });
     return new Response(
-      JSON.stringify({ success: true, message: "Thank you for subscribing!" }),
+      JSON.stringify({ success: true, message: "Tak for din tilmelding!" }),
       { status: 200, headers }
     );
   } catch (err) {
-    console.error("Newsletter signup error:", err);
+    console.error("Vercel Runtime Error:", err);
     return new Response(
-      JSON.stringify({ error: "Something went wrong. Please try again later." }),
+      JSON.stringify({ error: "Kunne ikke oprette forbindelse. Prøv igen senere." }),
       { status: 500, headers }
     );
   }
