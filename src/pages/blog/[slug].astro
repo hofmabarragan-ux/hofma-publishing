@@ -1,11 +1,29 @@
 ---
+export const prerender = true;
+
 import Layout from '../../layouts/Layout.astro';
 
-export function getStaticPaths() {
-	return [
-		{ params: { slug: 'welcome' }, props: { title: 'Welcome to Our Blog', date: '2025-02-01', content: "We're excited to share news, updates, and insights from Hofma Publishing. Stay tuned for author interviews, book recommendations, and behind-the-scenes updates. Thank you for visiting our blog!" } },
-		{ params: { slug: 'joy-of-independent-publishing' }, props: { title: 'The Joy of Independent Publishing', date: '2025-01-15', content: "What drives us to publish independently? A passion for books, a commitment to quality, and the freedom to bring diverse voices to readers. Independent publishing allows us to take creative risks and connect directly with our audience." } },
-	];
+export async function getStaticPaths() {
+  return [
+    {
+      params: { slug: 'welcome' },
+      props: {
+        title: 'Welcome to Our Blog',
+        date: '2025-02-01',
+        content:
+          "We're excited to share news, updates, and insights from Hofma Publishing. Stay tuned for author interviews, book recommendations, and behind-the-scenes updates. Thank you for visiting our blog!",
+      },
+    },
+    {
+      params: { slug: 'joy-of-independent-publishing' },
+      props: {
+        title: 'The Joy of Independent Publishing',
+        date: '2025-01-15',
+        content:
+          'What drives us to publish independently? A passion for books, a commitment to quality, and the freedom to bring diverse voices to readers. Independent publishing allows us to take creative risks and connect directly with our audience.',
+      },
+    },
+  ];
 }
 
 const { slug } = Astro.params;
