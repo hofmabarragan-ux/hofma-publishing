@@ -35,47 +35,46 @@ export const POST: APIRoute = async ({ request }) => {
             );
         }
 
-        const serviceAccountEmail = GOOGLE_SERVICE_ACCOUNT_EMAIL;
-        const privateKey = GOOGLE_PRIVATE_KEY;
-        const sheetId = GOOGLE_SHEET_ID;
-
-        // Tjek om variablerne findes
-        if (!serviceAccountEmail || !privateKey || !sheetId) {
-            console.error('Missing Google Sheets configuration');
+        // Tjek variabler
+        if (!GOOGLE_SERVICE_ACCOUNT_EMAIL || !GOOGLE_PRIVATE_KEY || !GOOGLE_SHEET_ID) {
+            console.error('Missing configuration');
             return new Response(
                 JSON.stringify({ error: 'Newsletter signup is not configured' }),
                 { status: 500, headers }
             );
         }
 
-        // KONFIGURATION AF AUTH MED LINJESKIFT-FIX
+        // FORMATERING AF NØGLE: 
+        // Vi fjerner eventuelle ydre anførselstegn og omdanner \n til rigtige linjeskift
+        const formattedKey = GOOGLE_PRIVATE_KEY
+            .replace(/^["']|["']$/g, '') // Fjerner " eller ' i starten og slutningen
+            .split(String.raw`\n`)      // Find bogstaverne \ og n
+            .join('\n');                // Lav dem om til rigtigt linjeskift
+
         const serviceAccountAuth = new JWT({
-            email: serviceAccountEmail,
-            // .replace sørger for at \n bliver læst som rigtige linjeskift i Vercel
-            key: privateKey.replace(/\\n/g, '\n'),
+            email: GOOGLE_SERVICE_ACCOUNT_EMAIL,
+            key: formattedKey,
             scopes: ['https://www.googleapis.com/auth/spreadsheets'],
         });
 
-        const doc = new GoogleSpreadsheet(sheetId, serviceAccountAuth);
+        const doc = new GoogleSpreadsheet(GOOGLE_SHEET_ID, serviceAccountAuth);
         await doc.loadInfo();
 
         const sheet = doc.sheetsByIndex[0];
-        
-        // Tilføj rækken til Google Sheet
         await sheet.addRow({
-            Date: new Date().toLocaleString('da-DK'), // Gør datoen læsevenlig på dansk
+            Date: new Date().toLocaleString('da-DK', { timeZone: 'Europe/Copenhagen' }),
             Email: trimmedEmail,
             Source: String(source).slice(0, 100),
         });
 
         return new Response(
-            JSON.stringify({ success: true, message: 'Thank you for subscribing!' }),
+            JSON.stringify({ success: true, message: 'Tak for din tilmelding!' }),
             { status: 200, headers }
         );
     } catch (err) {
-        console.error('Newsletter signup error:', err);
+        console.error('Vercel Runtime Error:', err);
         return new Response(
-            JSON.stringify({ error: 'Something went wrong. Please try again later.' }),
+            JSON.stringify({ error: 'Kunne ikke oprette forbindelse. Prøv igen senere.' }),
             { status: 500, headers }
         );
     }
