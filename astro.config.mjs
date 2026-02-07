@@ -10,10 +10,7 @@ export default defineConfig({
 
   output: 'server',
 
-  adapter: vercel({
-    webAnalytics: { enabled: true },
-    imageService: true,
-  }),
+  adapter: vercel(),
 
   env: {
     schema: {

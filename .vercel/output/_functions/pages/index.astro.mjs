@@ -1,6 +1,6 @@
 import { e as createAstro, f as createComponent, r as renderTemplate, h as addAttribute, m as maybeRenderHead, u as unescapeHTML, k as renderComponent, l as renderScript } from '../chunks/astro/server_CUqH5A8_.mjs';
 import 'piccolore';
-import { $ as $$Layout } from '../chunks/Layout_Zn_fmCfN.mjs';
+import { $ as $$Layout } from '../chunks/Layout_kgRCtpMH.mjs';
 import 'clsx';
 export { renderers } from '../renderers.mjs';
 
@@ -33,44 +33,44 @@ const $$BookCard = createComponent(($$result, $$props, $$slots) => {
       "url": amazonUrl
     }
   };
-  return renderTemplate(_a || (_a = __template(['<script type="application/ld+json">', "<\/script> ", '<article class="group relative flex flex-col bg-white border border-stone-200/80 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-amber-900/5 transition-all duration-300"> ', ' <div class="aspect-[2/3] bg-stone-100 overflow-hidden"> <img', "", ` width="400" height="600" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500" onerror="this.style.display='none';this.nextElementSibling?.classList.remove('hidden');"> <div class="hidden flex w-full h-full items-center justify-center text-stone-400 text-sm p-6 text-center bg-stone-100"> <span>Book Cover</span> </div> </div> <div class="p-6 flex flex-col flex-1"> <h3 class="font-serif text-xl font-semibold text-stone-900 mb-2 leading-tight"> `, " </h3> ", ' <p class="text-stone-500 text-sm leading-relaxed mb-6 flex-1"> ', " </p> <a", ' target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full py-3 px-5 bg-amber-900 hover:bg-amber-800 !text-white font-medium text-sm rounded-lg transition-colors duration-200">\nBuy on Amazon \u2192\n</a> </div> </article>'])), unescapeHTML(JSON.stringify(schema)), maybeRenderHead(), badge && renderTemplate`<span class="absolute top-4 right-4 z-10 px-3 py-1 bg-amber-900 text-amber-50 text-[10px] font-semibold uppercase tracking-wider rounded-md"> ${badge} </span>`, addAttribute(imageUrl, "src"), addAttribute(title, "alt"), title, price && renderTemplate`<p class="text-amber-900 font-semibold text-sm mb-2">${price}</p>`, description, addAttribute(amazonUrl, "href"));
+  return renderTemplate(_a || (_a = __template(['<script type="application/ld+json">', "<\/script> ", '<article class="group relative flex flex-col bg-white border border-stone-200/80 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-amber-900/5 transition-all duration-300"> ', ' <div class="aspect-[2/3] bg-stone-100 overflow-hidden"> <img', "", ` width="400" height="600" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500" onerror="this.style.display='none';this.nextElementSibling?.classList.remove('hidden');"> <div class="hidden flex w-full h-full items-center justify-center text-stone-400 text-sm p-6 text-center bg-stone-100"> <span>Book Cover</span> </div> </div> <div class="p-6 flex flex-col flex-1"> <h3 class="font-serif text-xl font-semibold text-stone-900 mb-2 leading-tight"> `, " </h3> ", ' <p class="text-stone-500 text-sm leading-relaxed mb-6 flex-1"> ', " </p> <a", ' target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full py-3 px-5 bg-amber-900 hover:bg-amber-800 !text-white font-medium text-sm rounded-lg transition-colors duration-200">\nBuy on Amazon \u2192\n</a> </div> </article>'])), unescapeHTML(JSON.stringify(schema)), maybeRenderHead(), badge && renderTemplate`<span class="absolute top-1 right-4 z-10 px-3 py-1 bg-amber-900 text-amber-50 text-[10px] font-semibold uppercase tracking-wider rounded-md"> ${badge} </span>`, addAttribute(imageUrl, "src"), addAttribute(title, "alt"), title, price && renderTemplate`<p class="text-amber-900 font-semibold text-sm mb-2">${price}</p>`, description, addAttribute(amazonUrl, "href"));
 }, "/Users/nielshofna/Documents/Hofma Publishing/src/components/BookCard.astro", void 0);
 
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   const books = [
     {
-      title: "Extended Color Edition",
-      description: "The complete experience with bonus content and full-color interior. Premium hardback for the discerning reader.",
+      title: "The European Countries Book - Extended Color Edition",
+      description: "Explore the countries of Europe in vibrant full color. This extended version features 4 pages for every country, including detailed maps, fun facts, and more.",
       price: null,
       imageUrl: "https://images-na.ssl-images-amazon.com/images/P/B0G33G45CJ.jpg",
       amazonUrl: "https://www.amazon.com/dp/B0G33G45CJ",
       badge: "Recommended"
     },
     {
-      title: "Color Edition",
-      description: "Full-color interior for a vibrant reading experience. Elegant premium hardback binding.",
+      title: "The European Countries Book - Color Edition",
+      description: "Explore the countries of Europe in vibrant full color. This version features 2 pages for every country, including detailed maps, fun facts, and more.",
       price: null,
       imageUrl: "https://images-na.ssl-images-amazon.com/images/P/B0FX9C7TS5.jpg",
       amazonUrl: "https://www.amazon.com/dp/B0FX9C7TS5",
       badge: null
     },
     {
-      title: "Standard Edition (B&W)",
-      description: "Classic black and white interior. Elegant and durable hardback\u2014perfect for everyday reading.",
+      title: "The European Countries Book - Black & White Edition",
+      description: "Explore the countries of Europe in black and white. This version features 2 pages for every country, including detailed maps, fun facts, and more.",
       price: null,
       imageUrl: "https://images-na.ssl-images-amazon.com/images/P/B0FDRXJX7C.jpg",
       amazonUrl: "https://www.amazon.com/dp/B0FDRXJX7C",
       badge: null
     }
   ];
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Hofma Publishing | Independent Publishing House" }, { "default": async ($$result2) => renderTemplate`  ${maybeRenderHead()}<section class="py-24 md:py-32 px-6 bg-gradient-to-b from-amber-50/50 to-transparent"> <div class="max-w-4xl mx-auto text-center"> <h1 class="font-serif text-4xl md:text-6xl font-semibold text-stone-900 mb-4 tracking-tight">
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Hofma Publishing | Independent Publishing House" }, { "default": async ($$result2) => renderTemplate`  ${maybeRenderHead()}<section class="pt-24 md:pt-32 pb-12 md:pb-16 px-6 bg-gradient-to-b from-amber-50/50 to-transparent"> <div class="max-w-4xl mx-auto text-center"> <h1 class="font-serif text-4xl md:text-6xl font-semibold text-stone-900 mb-4 tracking-tight">
 Hofma Publishing
-</h1> <p class="text-lg md:text-xl text-stone-500 max-w-2xl mx-auto">
-Independent publishing house bringing quality books to readers worldwide.
-</p> </div> </section>  <section class="py-20 md:py-28 px-6"> <div class="max-w-6xl mx-auto"> <div class="text-center mb-16"> <h2 class="font-serif text-3xl md:text-4xl font-semibold text-stone-900 mb-3">
+</h1> <p class="text-lg md:text-xl text-stone-500 max-w-2xl mx-auto" style="font-style: normal;">
+Personal book projects by Niels Hofma. Published simply for the love of great stories and the joy of sharing them with readers worldwide.
+</p> </div> </section>  <section class="pt-12 md:pt-16 pb-20 md:pb-28 px-6"> <div class="max-w-6xl mx-auto"> <div class="text-center mb-16"> <h2 class="font-serif text-3xl md:text-4xl font-semibold text-stone-900 mb-3">
 My Books
-</h2> <p class="text-stone-500 max-w-xl mx-auto">
-Available in premium hardback editions. Choose the format that suits you best.
+</h2> <p class="text-lg md:text-xl text-stone-500 max-w-2xl mx-auto">
+Below are the books I have published so far. New projects are always in the works, so stay updated by signing up for the newsletter below.
 </p> </div> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12"> ${books.map((book) => renderTemplate`${renderComponent($$result2, "BookCard", $$BookCard, { "title": book.title, "description": book.description, "price": book.price, "imageUrl": book.imageUrl, "amazonUrl": book.amazonUrl, "badge": book.badge })}`)} </div> <p class="mt-14 text-center text-stone-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
 If you purchase a book, I would really appreciate it if you could leave a review on Amazon. Your feedback helps other readers discover these titles and means a lot to me.
 </p> </div> </section>  <section class="py-20 md:py-28 px-6 bg-gradient-to-b from-amber-50/50 to-transparent"> <div class="max-w-xl mx-auto"> <div class="text-center mb-10"> <h2 class="font-serif text-3xl md:text-4xl font-semibold text-stone-900 mb-3">

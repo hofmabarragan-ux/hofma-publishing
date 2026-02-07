@@ -1,16 +1,16 @@
 import { f as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_CUqH5A8_.mjs';
 import 'piccolore';
-import { $ as $$Layout } from '../chunks/Layout_Zn_fmCfN.mjs';
+import { $ as $$Layout } from '../chunks/Layout_kgRCtpMH.mjs';
 /* empty css                                 */
 export { renderers } from '../renderers.mjs';
 
 const $$About = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "About | Hofma Publishing", "description": "Learn about Hofma Publishing, an independent publishing house dedicated to bringing quality books to readers worldwide.", "data-astro-cid-kh7btl4r": true }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<article class="page-content" data-astro-cid-kh7btl4r> <div class="section-inner" data-astro-cid-kh7btl4r> <h1 data-astro-cid-kh7btl4r>About Hofma Publishing</h1> <div class="about-body" data-astro-cid-kh7btl4r> <p data-astro-cid-kh7btl4r>
-Hofma Publishing is an independent publishing house dedicated to bringing quality books to readers worldwide. We believe in the power of storytelling and the importance of making great literature accessible to everyone.
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "About | Hofma Publishing", "description": "About Niels and Hofma Publishing\u2014personal book projects published for the love of great stories.", "data-astro-cid-kh7btl4r": true }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<article class="page-content" data-astro-cid-kh7btl4r> <div class="section-inner" data-astro-cid-kh7btl4r> <h1 data-astro-cid-kh7btl4r>About Hofma Publishing</h1> <div class="about-body" data-astro-cid-kh7btl4r> <p data-astro-cid-kh7btl4r>
+Hofma Publishing is basically just me, Niels. It started as a hobby because I love the process of creating books—from doing the research to sitting with the layout. Today, I use this platform to share my projects with anyone who might find them interesting.
 </p> <p data-astro-cid-kh7btl4r>
-Our books are available through Amazon Kindle Direct Publishing (KDP), making it easy for readers to discover and enjoy our titles in both print and digital formats.
+I publish through Amazon KDP to ensure my books can reach readers everywhere, whether you prefer holding a physical copy or reading on your Kindle.
 </p> <p data-astro-cid-kh7btl4r>
-We are committed to supporting authors and delivering books that inspire, entertain, and inform. Thank you for being part of our community of readers.
+For me, every book is a passion project. Whether it's a detailed guide to Europe or a new story, my goal is simply to create something that inspires, entertains, or informs. Thank you for supporting my work and being part of this journey.
 </p> </div> </div> </article> ` })} `;
 }, "/Users/nielshofna/Documents/Hofma Publishing/src/pages/about.astro", void 0);
 
