@@ -1,3 +1,0 @@
-{
-  "extends": "astro/vercel/config.json"
-}
