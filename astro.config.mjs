@@ -1,16 +1,14 @@
 // @ts-check
 import { defineConfig, envField } from 'astro/config';
+import vercel from '@astrojs/vercel/serverless';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel/serverless';
 
-// https://astro.build/config
+// https://astro.build/config (Vercel serverless)
 export default defineConfig({
-  site: 'https://hofmapublishing.com',
-
   output: 'server',
-
   adapter: vercel(),
+  site: 'https://hofmapublishing.com',
 
   env: {
     schema: {
